@@ -1,14 +1,15 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { Message } from "ai";
 import React from "react";
 
 interface MessageBoxProps{
-    message: any
+    message: Message
 }
 
 const MessageBox = ({message}: MessageBoxProps) => {
-  const isOwn = message.user;
+  const isOwn = message.role === "user";
 
   const container = cn(`
     relative
@@ -38,7 +39,7 @@ const MessageBox = ({message}: MessageBoxProps) => {
           </div> */}
         </div>
         <div className={content}>
-            <div>{message?.text}</div>
+            <div>{message?.content}</div>
         </div>
         {/* {isfirst && isOwn && seenList.length > 0 && (
           <div className="text-xs text-gray-400 font-light">
