@@ -54,6 +54,7 @@ const ChatFooter = ({ setMessage, handleSubmit, value }: ChatFooterProps) => {
     border-t
     border-gray-200
     bg-white
+    w-full
     "
     >
       <div className="flex items-center space-x-4">

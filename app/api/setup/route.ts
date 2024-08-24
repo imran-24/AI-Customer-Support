@@ -3,7 +3,11 @@ import { Pinecone } from "@pinecone-database/pinecone";
 import { TextLoader } from "langchain/document_loaders/fs/text";
 // import { CSVLoader } from "@langchain/community/document_loaders/fs/csv";
 import { DirectoryLoader } from "langchain/document_loaders/fs/directory";
-import { createPineconeIndex, indexName, updatePinecone } from "@/lib/utils";
+import {
+  createPineconeIndex,
+  indexName,
+  updatePinecone,
+} from "@/app/lib/utils";
 import { PDFLoader } from "@langchain/community/document_loaders/fs/pdf";
 import { Document } from "langchain/document";
 

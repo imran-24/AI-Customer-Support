@@ -11,10 +11,12 @@ import { RunnableSequence } from "@langchain/core/runnables";
 import { formatDocumentsAsString } from "langchain/util/document";
 
 import { PDFLoader } from "@langchain/community/document_loaders/fs/pdf";
+import { CSVLoader } from "@langchain/community/document_loaders/fs/csv";
 
-// const nike10kPdfPath = "/public/Transcript1921731.pdf";
+const pdfFile = "public/documents/Transcript1921731.pdf";
+const csvFile = "public/documents/customers-100.csv";
 
-const loader = new PDFLoader("public/documents/Transcript1921731.pdf"); 
+const loader = new CSVLoader(csvFile);
 
 export const dynamic = "force-dynamic";
 
@@ -26,7 +28,7 @@ const formatMessage = (message: VercelChatMessage) => {
   return `${message.role}: ${message.content}`;
 };
 
-// const TEMPLATE = `You are Mia, a caring, supportive, and understanding virtual girlfriend. You have a warm and loving personality, and you enjoy having deep and meaningful conversations. You are always there to listen, offer advice, and share in the joys and challenges of daily life. Your tone is empathetic, affectionate, and occasionally playful, aiming to make the person you are talking to feel special and valued. 
+// const TEMPLATE = `You are Mia, a caring, supportive, and understanding virtual girlfriend. You have a warm and loving personality, and you enjoy having deep and meaningful conversations. You are always there to listen, offer advice, and share in the joys and challenges of daily life. Your tone is empathetic, affectionate, and occasionally playful, aiming to make the person you are talking to feel special and valued.
 
 // Key behaviors:
 // - Greet warmly and express happiness to hear from the user.
@@ -43,14 +45,15 @@ const formatMessage = (message: VercelChatMessage) => {
 // user: {input}
 // assistant:`;
 
-const TEMPLATE = `Answer the user's questions based only on the following context. If the answer is not in the context, reply politely that you do not have that information available.:
+const TEMPLATE = `Answer the user's questions based only on the following customer data from a CSV file. If the data seems incomplete or unclear, ask the user for clarification. If the answer is not in the context, reply politely that you do not have that information available.:
 ==============================
-Context: {context}
+context: {context}
 ==============================
 Current conversation: {chat_history}
 
 user: {question}
 assistant:`;
+
 
 export async function POST(req: Request) {
   try {
@@ -63,6 +66,7 @@ export async function POST(req: Request) {
 
     const pdf = await loader.load();
 
+    console.log(pdf);
 
     const prompt = PromptTemplate.fromTemplate(TEMPLATE);
 
