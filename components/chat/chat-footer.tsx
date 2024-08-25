@@ -51,7 +51,6 @@ const ChatFooter = ({ setMessage, handleSubmit, value }: ChatFooterProps) => {
     z-50
     px-4
     py-3
-    border-t
     border-gray-200
     bg-white
     w-full

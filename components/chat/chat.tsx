@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/card";
 
 import { useChat } from "ai/react";
+import Image from "next/image";
 
 const ChatClient = () => {
   const chatParent = useRef<HTMLDivElement>(null);
@@ -32,8 +33,13 @@ const ChatClient = () => {
   });
 
   return (
-    <Card className="h-full max-w-3xl flex flex-col mx-auto relative">
-      <CardContent ref={chatParent} className="flex-1 overflow-y-auto mb-6 ">
+    <Card className="h-full max-w-xl flex flex-col mx-auto relative border-none ">
+      
+      <CardHeader className=" lg:fixed lg:left-0  bg-white z-10">
+        <CardTitle>IUB GreenBook 2023 </CardTitle>
+        <CardDescription>Independent university, Bangladesh</CardDescription>
+      </CardHeader>
+      <CardContent ref={chatParent} className="flex-1 overflow-y-auto  mb-6 ">
         <ChatBody messages={messages} />
         {messages.length === 0 && (
           <div className="absolute bottom-20 space-y-2">

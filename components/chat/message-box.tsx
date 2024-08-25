@@ -3,6 +3,7 @@
 import { cn } from "@/app/lib/utils";
 import { Message } from "ai";
 import React from "react";
+import Avater from "../ui/avater";
 
 interface MessageBoxProps {
   message: Message;
@@ -32,9 +33,9 @@ const MessageBox = ({ message }: MessageBoxProps) => {
 
   return (
     <div className={container}>
-      {/* <div className={avater}>
-        <Avater user={message.sender} />
-      </div> */}
+      <div className={avater}>
+        <Avater src={isOwn ?  '/user-placeholder.png' : "/IUB_LOGO.svg" } />
+      </div>
       <div className={body}>
         <div className="flex items-center gap-2">
           {/* <div className="text-sm text-gray-500">{message.sender.name}</div> */}
