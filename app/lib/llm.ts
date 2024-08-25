@@ -9,20 +9,17 @@ import { ChatOpenAI } from "@langchain/openai";
 //   temperature: 0, 
 // });
 
-export const streamingModel = new ChatOpenAI({
-  configuration: {
-    baseURL: "https://openrouter.ai/api/v1/",
-  },
-  apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY!,
-  model: "gpt-3.5-turbo",
-  temperature: 0.8,
-  // verbose: true,
-  streaming: true
+export const streamingModel = new ChatGoogleGenerativeAI({
+  apiKey: process.env.GEMINI_API_KEY,
+  model: "gemini-1.5-pro-latest",
+  //   verbose: true,
+  temperature: 0.4,
+  streaming: true,
 });
 
 export const nonStreamingModel = new ChatGoogleGenerativeAI({
   apiKey: process.env.GEMINI_API_KEY,
-  model: "gemini-pro",
+  model: "gemini-1.5-pro-latest",
 //   verbose: true,
   temperature: 0,
 });

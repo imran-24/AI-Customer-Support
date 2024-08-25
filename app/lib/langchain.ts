@@ -48,9 +48,9 @@ export async function callChain({ question, chatHistory }: callChainArgs) {
 
     // console.log(typeof chatHistory);
     // Usage:
-    const chat_history: BaseMessage[] = [];
+    const chat_history: BaseMessage[] = chatHistory;
 
-    // console.log(chat_history);
+    // console.log(chatHistory);
 
     const response = await ragChain.stream({
       chat_history: chat_history,
@@ -75,7 +75,7 @@ export async function callChain({ question, chatHistory }: callChainArgs) {
           for await (const chunk of response) {
             const textChunk = chunk.answer;
           // const textChunk = response.answer;
-            console.log("LOOP :", textChunk, chunk);
+            // console.log("LOOP :", textChunk, chunk);
             controller.enqueue(new TextEncoder().encode(textChunk));
           }
         } catch (err) {

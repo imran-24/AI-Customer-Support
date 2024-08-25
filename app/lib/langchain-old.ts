@@ -137,18 +137,18 @@ export async function callChain({ question, chatHistory }: callChainArgs) {
     // //   question: question,
     // // });
 
-    // const chain = ConversationalRetrievalQAChain.fromLLM(
-    //   streamingModel,
-    //   vectorStore.asRetriever(),
-    //   {
-    //     qaTemplate: QA_TEMPLATE,
-    //     questionGeneratorTemplate: STANDALONE_QUESTION_TEMPLATE,
-    //     returnSourceDocuments: true, //default 4
-    //     questionGeneratorChainOptions: {
-    //       llm: nonStreamingModel,
-    //     },
-    //   }
-    // );
+    const chain = ConversationalRetrievalQAChain.fromLLM(
+      streamingModel,
+      vectorStore.asRetriever(),
+      {
+        qaTemplate: QA_TEMPLATE,
+        questionGeneratorTemplate: STANDALONE_QUESTION_TEMPLATE,
+        returnSourceDocuments: true, //default 4
+        questionGeneratorChainOptions: {
+          llm: nonStreamingModel,
+        },
+      }
+    );
 
     // // Question using chat-history
     // // Reference https://js.langchain.com/docs/modules/chains/popular/chat_vector_db#externally-managed-memory

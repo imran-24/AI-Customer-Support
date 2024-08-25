@@ -2,8 +2,8 @@
 import { PDFLoader } from "@langchain/community/document_loaders/fs/pdf";
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 
-const pdfFile = "public/documents/Transcript1921731.pdf";
-const csvFile = "public/documents/customers-100.csv";
+const pdfFile = "public/documents/GreenBook_Su23.pdf";
+const csvFile = "public/documents/course_offer_remix.csv";
 
 
 export async function getChunkedDocsFromPDF() {

@@ -7,12 +7,12 @@ import {
 } from "ai";
 import { callChain } from "@/app/lib/langchain";
 import { HumanMessage } from "@langchain/core/messages";
-import { SystemMessage } from "@langchain/core/messages";
+import { AIMessage } from "@langchain/core/messages";
 
 const formatMessage = (message: Message) =>
   message.role === "user"
-    ? new HumanMessage({ content: message.content })
-    : new SystemMessage({ content: message.content });
+    ? new HumanMessage(message.content)
+    : new AIMessage(message.content);
 
 export async function POST(req: NextRequest) {
   const body = await req.json();

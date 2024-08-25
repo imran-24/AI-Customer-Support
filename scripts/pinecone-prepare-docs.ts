@@ -10,7 +10,7 @@ import { embedAndStoreDocs } from "@/app/lib/vector-store";
 (async () => {
   try {
     const pineconeClient = await getPineconeClient();
-    console.log("Preparing chunks from PDF file");
+    console.log("Preparing chunks from EXCEL file");
     const docs = await getChunkedDocsFromPDF();
     console.log(`Loading ${docs.length} chunks into pinecone...`);
     await embedAndStoreDocs(pineconeClient, docs);

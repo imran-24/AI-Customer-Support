@@ -15,7 +15,7 @@ import {
 import { useChat } from "ai/react";
 
 const ChatClient = () => {
-  const chatParent = useRef<HTMLDivElement>(null)
+  const chatParent = useRef<HTMLDivElement>(null);
 
   const { messages, input, handleInputChange, handleSubmit } = useChat({
     api: "api/conversation",
@@ -25,21 +25,33 @@ const ChatClient = () => {
   });
 
   useEffect(() => {
-    const domNode = chatParent.current
+    const domNode = chatParent.current;
     if (domNode) {
-        domNode.scrollTop = domNode.scrollHeight
+      domNode.scrollTop = domNode.scrollHeight;
     }
-})
-
+  });
 
   return (
     <Card className="h-full max-w-3xl flex flex-col mx-auto relative">
-      {/* <CardHeader>
-      <CardTitle>Card Title</CardTitle>
-      <CardDescription>Card Description</CardDescription>
-    </CardHeader> */}
-      <CardContent ref={chatParent}  className="flex-1 overflow-y-auto mb-6 ">
+      <CardContent ref={chatParent} className="flex-1 overflow-y-auto mb-6 ">
         <ChatBody messages={messages} />
+        {messages.length === 0 && (
+          <div className="absolute bottom-20 space-y-2">
+            <div className=" p-2  w-fit  border border-neutral-300  rounded-lg bg-neutral-100">
+              <p className="text-sm text-neutral-800 font-medium ">
+                Independent University, Bangladesh
+              </p>
+            </div>
+            <div className=" p-2 w-fit border border-neutral-300  rounded-lg bg-neutral-100">
+              <p className="text-sm text-neutral-800">
+                Ask anything about{" "}
+                <span className="font-medium capitalize text-black">
+                  Iub Policies And Procedures
+                </span>
+              </p>
+            </div>
+          </div>
+        )}
       </CardContent>
       <CardFooter className="w-full absolute bottom-0 left-0 right-0">
         <ChatFooter
