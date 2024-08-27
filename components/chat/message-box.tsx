@@ -35,7 +35,7 @@ const MessageBox = ({ message }: MessageBoxProps) => {
   return (
     <div className={container}>
       <div className={avater}>
-        <Avater src={isOwn ?  '/user-placeholder.png' : "/IUB_LOGO.svg" } />
+        <Avater src={isOwn ?  '/user-placeholder.png' : "/logo.svg" } />
       </div>
       <div className={body}>
         <div className="flex items-center gap-2">
