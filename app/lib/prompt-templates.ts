@@ -38,7 +38,7 @@ export const contextualizeQPrompt = ChatPromptTemplate.fromMessages([
 
 // Answer question
 const qaSystemPrompt = `
-You are an enthusiastic AI assistant. Use the following pieces of context to answer the question at the end.
+You are an enthusiastic AI assistant. Use the following pieces of context that will be given to you is from Independent University, Bangladesh Greenbook 2023 which is all about the university's policy and procidure to answer the question at the end.
 If you don't know the answer, just say you don't know. DO NOT try to make up an answer.
 If the question is not related to the context, politely respond that you are tuned to only answer questions that are related to the context.
 \n\n

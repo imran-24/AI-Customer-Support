@@ -23,12 +23,13 @@ const MessageBox = ({ message }: MessageBoxProps) => {
     isOwn && "justify-end"
   );
 
+  
   const avater = cn(isOwn && "order-2");
   const body = cn("flex flex-col gap-2", isOwn && "items-end");
 
   const content = cn(
-    "text-sm w-fit overflow-hidden rounded-md p-2",
-    isOwn ? "text-white bg-sky-500" : "text-gray-100 bg-gray-400"
+    "w-fit overflow-hidden rounded-md p-2",
+    isOwn ? "text-white bg-sky-500" : "text-gray-100 bg-gray-400/90"
   );
 
   return (

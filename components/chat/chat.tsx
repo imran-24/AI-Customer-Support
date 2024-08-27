@@ -33,9 +33,9 @@ const ChatClient = () => {
   });
 
   return (
-    <Card className="h-full max-w-xl flex flex-col mx-auto relative border-none ">
+    <Card className="h-full max-w-3xl flex flex-col mx-auto relative border-none ">
       
-      <CardHeader className=" lg:fixed lg:left-0  bg-white z-10">
+      <CardHeader className=" xl:fixed xl:left-0  bg-white z-10">
         <CardTitle>IUB GreenBook 2023 </CardTitle>
         <CardDescription>Independent university, Bangladesh</CardDescription>
       </CardHeader>
