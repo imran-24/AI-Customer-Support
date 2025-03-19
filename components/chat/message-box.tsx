@@ -4,6 +4,7 @@ import { cn } from "@/app/lib/utils";
 import { Message } from "ai";
 import React from "react";
 import Avater from "../ui/avater";
+import { TypeAnimation } from "react-type-animation";
 
 interface MessageBoxProps {
   message: Message;
@@ -23,29 +24,36 @@ const MessageBox = ({ message }: MessageBoxProps) => {
     isOwn && "justify-end"
   );
 
-  
+  console.log(message)
+
   const avater = cn(isOwn && "order-2");
   const body = cn("flex flex-col gap-2", isOwn && "items-end");
 
   const content = cn(
     "w-fit overflow-hidden rounded-md p-2",
-    isOwn ? "text-white bg-sky-500" : "text-gray-100 bg-gray-400/90"
+    isOwn ? "text-white bg-sky-500" : "text-primary bg-neutral-200"
   );
 
   return (
     <div className={container}>
       <div className={avater}>
-        <Avater src={isOwn ?  '/user-placeholder.png' : "/logo.svg" } />
+        <Avater src={isOwn ? "/toon_5.png" : "/logo.svg"} />
       </div>
       <div className={body}>
-        <div className="flex items-center gap-2">
+        <div className='flex items-center gap-2'>
           {/* <div className="text-sm text-gray-500">{message.sender.name}</div> */}
           {/* <div className="text-xs text-gray-400">
             {format(new Date(message.createdAt), "p")}
           </div> */}
         </div>
         <div className={content}>
-          <div>{message?.content}</div>
+          <div>
+            {/* <TypeAnimaWhy ation
+              sequence={[ */}
+                {message.content ? message.content : <span className="animate-ping">...</span>}
+              {/* ]}
+            /> */}
+          </div>
         </div>
         {/* {isfirst && isOwn && seenList.length > 0 && (
           <div className="text-xs text-gray-400 font-light">

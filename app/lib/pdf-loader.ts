@@ -5,7 +5,6 @@ import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 const pdfFile = "public/documents/GreenBook_Su23.pdf";
 const csvFile = "public/documents/course_offer_remix.csv";
 
-
 export async function getChunkedDocsFromPDF() {
   try {
     const loader = new PDFLoader(pdfFile);

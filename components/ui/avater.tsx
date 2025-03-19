@@ -24,8 +24,9 @@ const Avater: React.FC<AvaterProps> = ({
         md:w-8
         rounded-lg
         cursor-pointer
+        bg-slate-100
         '>
-          <Image fill src={src} alt='user' />    
+          <Image fill src={src} alt='user'  />    
         </div>
     </div>
   )
