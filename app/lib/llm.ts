@@ -11,7 +11,7 @@ import { ChatOpenAI } from "@langchain/openai";
 
 export const streamingModel = new ChatGoogleGenerativeAI({
   apiKey: process.env.GEMINI_API_KEY,
-  model: "gemini-1.5-pro-latest",
+  model: "gemini-2.0-flash-lite",
   //   verbose: true,
   temperature: 0.4,
   streaming: true,
@@ -19,7 +19,7 @@ export const streamingModel = new ChatGoogleGenerativeAI({
 
 export const nonStreamingModel = new ChatGoogleGenerativeAI({
   apiKey: process.env.GEMINI_API_KEY,
-  model: "gemini-1.5-pro-latest",
-//   verbose: true,
+  model: "gemini-2.0-flash-lite",
+  //   verbose: true,
   temperature: 0,
 });

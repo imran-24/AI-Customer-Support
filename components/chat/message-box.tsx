@@ -2,7 +2,7 @@
 
 import { cn } from "@/app/lib/utils";
 import { Message } from "ai";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Avater from "../ui/avater";
 import { TypeAnimation } from "react-type-animation";
 
@@ -11,6 +11,7 @@ interface MessageBoxProps {
 }
 
 const MessageBox = ({ message }: MessageBoxProps) => {
+
   const isOwn = message.role === "user";
 
   const container = cn(
@@ -23,8 +24,6 @@ const MessageBox = ({ message }: MessageBoxProps) => {
     pb-4`,
     isOwn && "justify-end"
   );
-
-  console.log(message)
 
   const avater = cn(isOwn && "order-2");
   const body = cn("flex flex-col gap-2", isOwn && "items-end");
@@ -48,11 +47,7 @@ const MessageBox = ({ message }: MessageBoxProps) => {
         </div>
         <div className={content}>
           <div>
-            {/* <TypeAnimaWhy ation
-              sequence={[ */}
-                {message.content ? message.content : <span className="animate-ping">...</span>}
-              {/* ]}
-            /> */}
+          {message.content ? message.content : <span className="animate-ping">...</span>}
           </div>
         </div>
         {/* {isfirst && isOwn && seenList.length > 0 && (
